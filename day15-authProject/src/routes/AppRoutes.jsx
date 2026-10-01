@@ -1,41 +1,45 @@
-import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router";
-// import AuthLayout from "../layouts/AuthLayout";
-import LoginPage from "../pages/LoginPage";
-import RegisterPage from "../pages/RegisterPage";
-import MainLayout from "../layouts/MainLayout";
-import ProtectedRoute from "./ProtectedRoute";
-import AuthLayout from "../layouts/Authlayout";
+import React from 'react'
+import { createBrowserRouter, RouterProvider } from 'react-router'
+import AuthLayout from '../Layouts/AuthLayout'
+import LoginPage from '../pages/LoginPage'
+import RegisterPage from '../pages/RegisterPage'
+import MainLayout from '../layouts/MainLayout'
+import ProtectedRoutes from './ProtectedRoutes'
 
 const AppRoutes = () => {
-  let router = createBrowserRouter([
+
+let router = createBrowserRouter([
     {
-      path: "/",
-      element: <AuthLayout />,
-      children: [
-        {
-          path: "",
-          element: <LoginPage />,
-        },
-        {
-          path: "register",
-          element: <RegisterPage />,
-        },
-      ],
+        path:"/",
+        element: <AuthLayout />,
+        children: [
+            {
+                path:"",
+                element:<LoginPage />,
+
+            },
+             {
+                path:"Register",
+                element:<RegisterPage />
+                
+            }
+        ]
     },
     {
-      path: "/main",
-      element: <ProtectedRoute />,
-      children: [
+     path:"/main",
+     element: <ProtectedRoutes />,
+     children:[
         {
-          path: "",
-          element: <MainLayout />,
-        },
-      ],
-    },
-  ]);
+            path: "",
+            element: <MainLayout />,
+        }
+     ]
+    }
+])
 
-  return <RouterProvider router={router} />;
-};
 
-export default AppRoutes;
+
+  return  <RouterProvider router={router} />
+} 
+
+export default AppRoutes

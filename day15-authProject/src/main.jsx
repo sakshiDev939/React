@@ -1,13 +1,14 @@
-import { createRoot } from "react-dom/client";
-import "./index.css";
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import AppRoutes from './routes/AppRoutes'
+import { AuthProvider } from './Context/AuthContext'
+  import { ToastContainer,  } from 'react-toastify';
 
-import AppRoutes from "./routes/AppRoutes.jsx";
-import { AuthProvider } from "./context/AuthContext.jsx";
-import { ToastContainer } from "react-toastify";
 
-createRoot(document.getElementById("root")).render(
-  <AuthProvider>
-    <AppRoutes />
-    <ToastContainer />
-  </AuthProvider>
-);
+createRoot(document.getElementById('root')).render(
+<AuthProvider>
+ <AppRoutes />
+         <ToastContainer />
+
+</AuthProvider>
+)

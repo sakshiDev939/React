@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
-import { Outlet, Navigate } from "react-router";
-import { Auth } from "../context/AuthContext";
+import React, { useContext } from 'react'
+import { Navigate, Outlet } from 'react-router'
+import { Auth } from '../Context/AuthContext'
 
-const ProtectedRoute = () => {
-  const { loggedInUser } = useContext(Auth);
+const ProtectedRoutes = () => {
 
-  if (!loggedInUser) {
-    return <Navigate to={"/"} />;
-  }
+    const{loggedInUser}= useContext(Auth);
+    if(!loggedInUser){
+        return <Navigate to={"/"}/>
+    } 
 
-  return <Outlet />;
-};
+  return <Outlet />
+}
 
-export default ProtectedRoute;
+export default ProtectedRoutes
