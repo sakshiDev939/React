@@ -13,17 +13,16 @@ import { createBrowserRouter, RouterProvider } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { hydrateUser } from '../features/auth/api/authApi';
 import { addUser } from '../features/auth/state/authSlice';
+import { hydrateUserAction } from '../features/auth/state/authAction';
 
 const AppRoutes = () => {
 
     let dispatch = useDispatch();
 
   useEffect(()=> {
-    (async ()=> {
+    ( ()=> {
         try {
-            let response = await hydrateUser();
-            console.log(response);
-            dispatch(addUser(response));
+           dispatch(hydrateUserAction());
         } catch (error) {
             console.log("error in hydration..", error)
         }
